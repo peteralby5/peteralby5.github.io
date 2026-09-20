@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冒险岛弓箭手-职业定位、加点流派与实战攻略指南</title>
+    <meta name="description" content="本站为您提供关于冒险岛弓箭手的全面攻略，涵盖职业定位、技能加点推荐、装备搭配、BOSS攻略及不同职业分支（如箭神、神射手）的玩法解析。">
+    <meta name="keywords" content="冒险岛,冒险岛弓箭手,冒险岛攻略,冒险岛加点,冒险岛神射手,冒险岛箭神,冒险岛BOSS">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #27ae60;
+            --accent-hover: #219150;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-color: #e0e0e0;
+            --hero-bg: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-size: 1rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--hero-bg);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 60px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        /* Job Comparison Cards */
+        .job-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .job-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .job-header {
+            padding: 20px;
+            background: #f1f8e9;
+            color: var(--accent-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .job-header h3 {
+            font-size: 1.25rem;
+        }
+
+        .job-tag {
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            background: rgba(255,255,255,0.6);
+            border-radius: 4px;
+        }
+
+        .job-body {
+            padding: 20px;
+        }
+
+        .job-body p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .job-stats {
+            display: flex;
+            justify-content: space-between;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        .stat-item strong {
+            display: block;
+            color: var(--primary-color);
+        }
+
+        /* Skills Table */
+        .skills-container {
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .skill-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .skill-table th, .skill-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .skill-table th {
+            background-color: #f8f9fa;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .skill-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .skill-table tr:hover {
+            background-color: #fafafa;
+        }
+
+        .skill-icon {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-color: #ddd;
+            border-radius: 50%;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        /* Guide List */
+        .guide-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .guide-item {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .guide-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .guide-item p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .guide-link {
+            color: var(--accent-color);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .guide-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #bdc3c7;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-col h5 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <a href="#" class="logo">冒险岛<span>攻略站</span></a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">弓箭手</a></li>
+                <li><a href="#">技能加点</a></li>
+                <li><a href="#">装备推荐</a></li>
+                <li><a href="#">BOSS攻略</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="hero">
+    <div class="hero-content">
+        <h1>冒险岛弓箭手：远程输出的优雅与精准</h1>
+        <p>从新手村的神射手到满级后的箭神，探索最适合你的职业分支，掌握核心加点技巧，成为战场上最致命的远程输出。</p>
+        <a href="#comparison" class="btn btn-primary">查看职业对比</a>
+    </div>
+</div>
+
+<main class="container">
+    
+    <!-- Section 1: Job Comparison -->
+    <section id="comparison">
+        <div class="section-header">
+            <h2 class="section-title">职业分支对比</h2>
+        </div>
+        <div class="job-grid">
+            <!-- Job 1 -->
+            <article class="job-card">
+                <div class="job-header">
+                    <h3>神射手</h3>
+                    <span class="job-tag">物理型</span>
+                </div>
+                <div class="job-body">
+                    <p>神射手是弓箭手职业树的分支，以其极高的攻击速度和暴击率著称。适合喜欢高频率输出、追求极限爆发伤害的玩家。</p>
+                    <div class="job-stats">
+                        <div class="stat-item">
+                            <strong>主要优势</strong>
+                            高攻速、强力单体爆发
+                        </div>
+                        <div class="stat-item">
+                            <strong>推荐场景</strong>
+                            BOSS攻坚、单人练级
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Job 2 -->
+            <article class="job-card">
+                <div class="job-header" style="background-color: #e3f2fd; color: #1976d2;">
+                    <h3>箭神</h3>
+                    <span class="job-tag">群攻型</span>
+                </div>
+                <div class="job-body">
+                    <p>箭神拥有强大的群攻技能“多重箭”，能够同时攻击多个敌人。适合喜欢清理小怪、在团队副本中担任主力AOE输出的玩家。</p>
+                    <div class="job-stats">
+                        <div class="stat-item">
+                            <strong>主要优势</strong>
+                            超大范围群攻、持续输出
+                        </div>
+                        <div class="stat-item">
+                            <strong>推荐场景</strong>
+                            群怪练级、团队副本
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Job 3 -->
+            <article class="job-card">
+                <div class="job-header" style="background-color: #fce4ec; color: #c2185b;">
+                    <h3>海盗 (猎手)</h3>
+                    <span class="job-tag">物理型</span>
+                </div>
+                <div class="job-body">
+                    <p>海盗分支拥有独特的枪械技能和机动性。拥有“爆炎枪”等强力技能，操作手感爽快，兼具物理与魔法双重属性。</p>
+                    <div class="job-stats">
+                        <div class="stat-item">
+                            <strong>主要优势</strong>
+                            技能多样、机动性强
+                        </div>
+                        <div class="stat-item">
+                            <strong>推荐场景</strong>
+                            混合副本、竞技场
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Section 2: Skills -->
+    <section id="skills">
+        <div class="section-header">
+            <h2 class="section-title">核心技能解析</h2>
+        </div>
+        <div class="skills-container">
+            <table class="skill-table">
+                <thead>
+                    <tr>
+                        <th width="20%">技能名称</th>
+                        <th width="40%">技能描述</th>
+                        <th width="20%">效果/加成</th>
+                        <th width="20%">推荐加点</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="skill-icon"></span>多重箭</td>
+                        <td>向5个敌人发射箭矢，造成物理伤害。</td>
+                        <td>箭神核心AOE，满级增加攻击范围。</td>
+                        <td>必满</td>
+                    </tr>
+                    <tr>
+                        <td><span class="skill-icon"></span>箭雨</td>
+                        <td>向地面投掷箭矢，造成范围伤害并减速。</td>
+                        <td>控制与伤害兼备，适合起手。</td>
+                        <td>满级/点1</td>
+                    </tr>
+                    <tr>
+                        <td><span class="skill-icon"></span>精准箭</td>
+                        <td>提升箭矢的命中率，增加暴击率。</td>
+                        <td>对于高敏捷职业至关重要。</td>
+                        <td>必满</td>
+                    </tr>
+                    <tr>
+                        <td><span class="skill-icon"></span>穿透箭</td>
+                        <td>箭矢可穿透敌人，对路径上的所有目标造成伤害。</td>
+                        <td>在密集怪物群中效果显著。</td>
+                        <td>满级</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Section 3: Strategy Guides -->
+    <section id="guides">
+        <div class="section-header">
+            <h2 class="section-title">进阶攻略指南</h2>
+        </div>
+        <div class="guide-list">
+            <article class="guide-item">
+                <h4>冒险岛弓箭手加点推荐</h4>
+                <p>详细解析神射手与箭神的技能点分配方案，包括前期过渡加点与满级成型加点策略。</p>
+                <a href="#" class="guide-link">阅读全文 &rarr;</a>
+            </article>
+            <article class="guide-item">
+                <h4>弓箭手装备选择指南</h4>
+                <p>从新手弓到传说级装备，不同阶段的属性优先级解析，附上当前版本推荐装备清单。</p>
+                <a href="#" class="guide-link">阅读全文 &rarr;</a>
+            </article>
+            <article class="guide-item">
+                <h4>弓箭手BOSS攻略</h4>
+                <p>针对黑龙、露娜娜等主流BOSS的躲避技巧与输出循环，提升你的团队贡献。</p>
+                <a href="#" class="guide-link">阅读全文 &rarr;</a>
+            </article>
+            <article class="guide-item">
+                <h4>弓箭手宠物与坐骑</h4>
+                <p>如何搭配宠物技能以最大化弓箭手的输出环境，提升练级效率。</p>
+                <a href="#" class="guide-link">阅读全文 &rarr;</a>
+            </article>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h5>关于本站</h5>
+            <p style="font-size: 0.9rem; line-height: 1.6;">本站专注于提供《冒险岛》系列游戏的职业攻略与数据整理，旨在帮助玩家更高效地规划游戏角色发展。</p>
+        </div>
+        <div class="footer-col">
+            <h5>快速导航</h5>
+            <ul>
+                <li><a href="#">职业大全</a></li>
+                <li><a href="#">技能数据库</a></li>
+                <li><a href="#">装备掉落表</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h5>友情链接</h5>
+            <ul>
+                <li><a href="#">冒险岛官方网站</a></li>
+                <li><a href="#">冒险岛Wiki</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2023 冒险岛攻略站. All rights reserved. 本页面内容仅供学习交流，非官方网站。</p>
+    </div>
+</footer>
+
+</body>
+</html>
