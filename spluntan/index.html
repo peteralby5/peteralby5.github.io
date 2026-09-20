@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SP论坛 - 专业讨论社区，提供SP服务、行业资讯、技术交流与资源共享。包含最新话题、热门板块、用户问答及社区公告。">
+    <meta name="keywords" content="SP论坛, SP讨论, SP服务, SP行业, SP交流, SP社区">
+    <title>SP论坛 - 专业SP服务讨论与行业交流社区</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary-color: #64748b;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-sub: #475569;
+            --border-color: #e2e8f0;
+            --accent-color: #f59e0b;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-sub);
+        }
+
+        nav a.active, nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            font-size: 0.9rem;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .hero-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+            margin-bottom: 2rem;
+        }
+
+        .search-bar {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .search-bar button {
+            padding: 0 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Main Layout */
+        .main-container {
+            max-width: var(--container-width);
+            margin: 2rem auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+            flex: 1;
+        }
+
+        /* Content Area */
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            border-left: 4px solid var(--primary-color);
+            padding-left: 0.75rem;
+        }
+
+        .section-more {
+            font-size: 0.875rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .topic-list {
+            background: var(--card-bg);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .topic-item {
+            display: flex;
+            padding: 1.25rem;
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.2s;
+        }
+
+        .topic-item:last-child {
+            border-bottom: none;
+        }
+
+        .topic-item:hover {
+            background-color: #f8fafc;
+        }
+
+        .topic-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: #e2e8f0;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .topic-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .topic-content {
+            flex: 1;
+        }
+
+        .topic-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .topic-meta {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            display: flex;
+            gap: 1rem;
+        }
+
+        .topic-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .topic-stats {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            min-width: 80px;
+            gap: 0.25rem;
+            text-align: right;
+        }
+
+        .stat-item {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+        }
+
+        .stat-item strong {
+            color: var(--text-main);
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+        }
+
+        .sidebar-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .sidebar-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .category-list li {
+            margin-bottom: 0.75rem;
+        }
+
+        .category-list a {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-sub);
+            font-size: 0.95rem;
+        }
+
+        .category-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .category-count {
+            background-color: #f1f5f9;
+            padding: 0.1rem 0.5rem;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            color: var(--text-sub);
+        }
+
+        .notice-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px dashed var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        .notice-item:last-child {
+            border-bottom: none;
+        }
+
+        .notice-item strong {
+            color: var(--accent-color);
+            margin-right: 0.5rem;
+        }
+
+        /* Tags */
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            padding: 0.25rem 0.75rem;
+            background-color: #f1f5f9;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        .tag:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e293b;
+            color: #94a3b8;
+            padding: 3rem 1rem;
+            margin-top: auto;
+        }
+
+        .footer-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1.25rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            max-width: var(--container-width);
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                padding: 0 1rem;
+            }
+            
+            nav {
+                display: none; /* Simplified for mobile */
+            }
+
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            .topic-item {
+                flex-direction: column;
+            }
+
+            .topic-avatar {
+                margin-bottom: 0.5rem;
+            }
+
+            .topic-stats {
+                flex-direction: row;
+                width: 100%;
+                justify-content: flex-start;
+                margin-top: 0.5rem;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <a href="#" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            <span>SP论坛</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">SP服务</a></li>
+                <li><a href="#">行业资讯</a></li>
+                <li><a href="#">技术交流</a></li>
+                <li><a href="#">资源下载</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button class="btn btn-outline">登录</button>
+            <button class="btn btn-primary">注册</button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-inner">
+            <h1>连接SP行业，共享专业价值</h1>
+            <p>SP论坛致力于为服务提供商、技术专家及行业从业者提供深度交流平台。在这里，探讨最新趋势，解决技术难题。</p>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索话题、版块或用户...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="main-container">
+        <!-- Content Section -->
+        <div class="content-area">
+            <section>
+                <div class="section-header">
+                    <h2 class="section-title">热门讨论</h2>
+                    <a href="#" class="section-more">查看全部 &rarr;</a>
+                </div>
+                <div class="topic-list">
+                    <article class="topic-item">
+                        <div class="topic-avatar">
+                            <img src="https://picsum.photos/seed/user1/100/100" alt="用户头像">
+                        </div>
+                        <div class="topic-content">
+                            <a href="#" class="topic-title">2024年SP服务行业合规性标准解读与应对策略</a>
+                            <div class="topic-meta">
+                                <span>作者：行业观察员</span>
+                                <span>发布于：2小时前</span>
+                                <span>分类：行业资讯</span>
+                            </div>
+                        </div>
+                        <div class="topic-stats">
+                            <span class="stat-item">回复 <strong>128</strong></span>
+                            <span class="stat-item">浏览 <strong>3.5k</strong></span>
+                        </div>
+                    </article>
+
+                    <article class="topic-item">
+                        <div class="topic-avatar">
+                            <img src="https://picsum.photos/seed/user2/100/100" alt="用户头像">
+                        </div>
+                        <div class="topic-content">
+                            <a href="#" class="topic-title">关于SP服务器集群高可用架构设计的最佳实践</a>
+                            <div class="topic-meta">
+                                <span>作者：架构师老王</span>
+                                <span>发布于：5小时前</span>
+                                <span>分类：技术交流</span>
+                            </div>
+                        </div>
+                        <div class="topic-stats">
+                            <span class="stat-item">回复 <strong>86</strong></span>
+                            <span class="stat-item">浏览 <strong>1.2k</strong></span>
+                        </div>
+                    </article>
+
+                    <article class="topic-item">
+                        <div class="topic-avatar">
+                            <img src="https://picsum.photos/seed/user3/100/100" alt="用户头像">
+                        </div>
+                        <div class="topic-content">
+                            <a href="#" class="topic-title">新手求助：如何快速上手SP工具包？</a>
+                            <div class="topic-meta">
+                                <span>作者：初学者小李</span>
+                                <span>发布于：1天前</span>
+                                <span>分类：新手问答</span>
+                            </div>
+                        </div>
+                        <div class="topic-stats">
+                            <span class="stat-item">回复 <strong>45</strong></span>
+                            <span class="stat-item">浏览 <strong>890</strong></span>
+                        </div>
+                    </article>
+
+                    <article class="topic-item">
+                        <div class="topic-avatar">
+                            <img src="https://picsum.photos/seed/user4/100/100" alt="用户头像">
+                        </div>
+                        <div class="topic-content">
+                            <a href="#" class="topic-title">国内SP市场现状分析及未来三年趋势预测</a>
+                            <div class="topic-meta">
+                                <span>作者：市场分析师</span>
+                                <span>发布于：2天前</span>
+                                <span>分类：行业分析</span>
+                            </div>
+                        </div>
+                        <div class="topic-stats">
+                            <span class="stat-item">回复 <strong>210</strong></span>
+                            <span class="stat-item">浏览 <strong>5.6k</strong></span>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-header">
+                    <h2 class="section-title">最新公告</h2>
+                    <a href="#" class="section-more">查看全部 &rarr;</a>
+                </div>
+                <div class="topic-list">
+                    <article class="topic-item" style="border-bottom: none;">
+                        <div class="topic-content" style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                            <a href="#" class="topic-title" style="font-size: 1rem;">SP论坛社区管理规范更新通知</a>
+                        </div>
+                    </article>
+                    <article class="topic-item" style="border-bottom: none;">
+                        <div class="topic-content" style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                            <a href="#" class="topic-title" style="font-size: 1rem;">2024年度优秀贡献者评选活动开启</a>
+                        </div>
+                    </article>
+                    <article class="topic-item" style="border-bottom: none;">
+                        <div class="topic-content" style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                            <a href="#" class="topic-title" style="font-size: 1rem;">服务器维护通知：本周六凌晨2点</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+
+        <!-- Sidebar -->
+        <aside>
+            <div class="sidebar-card">
+                <h3 class="sidebar-title">版块导航</h3>
+                <ul class="category-list">
+                    <li><a href="#"><span>综合讨论区</span><span class="category-count">1.2w</span></a></li>
+                    <li><a href="#"><span>SP技术交流</span><span class="category-count">8.5k</span></a></li>
+                    <li><a href="#"><span>资源分享</span><span class="category-count">5.6k</span></a></li>
+                    <li><a href="#"><span>求职招聘</span><span class="category-count">3.2k</span></a></li>
+                    <li><a href="#"><span>设备评测</span><span class="category-count">2.1k</span></a></li>
+                    <li><a href="#"><span>闲聊灌水</span><span class="category-count">9.8k</span></a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-card">
+                <h3 class="sidebar-title">热门标签</h3>
+                <div class="tag-cloud">
+                    <a href="#" class="tag">SP认证</a>
+                    <a href="#" class="tag">流量经营</a>
+                    <a href="#" class="tag">接口对接</a>
+                    <a href="#" class="tag">数据分析</a>
+                    <a href="#" class="tag">合规运营</a>
+                    <a href="#" class="tag">工具下载</a>
+                    <a href="#" class="tag">案例分享</a>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <h3 class="sidebar-title">社区公告</h3>
+                <div class="notice-list">
+                    <div class="notice-item"><strong>公告：</strong>新版论坛上线，积分规则调整</div>
+                    <div class="notice-item"><strong>提醒：</strong>请勿发布违规广告信息</div>
+                    <div class="notice-item"><strong>活动：</strong>注册即送新手大礼包</div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-col">
+            <div class="logo" style="margin-bottom: 1rem;">
+                <span>SP论坛</span>
+            </div>
+            <p style="font-size: 0.9rem; line-height: 1.6;">
+                SP论坛是国内领先的SP服务行业垂直社区，致力于为从业者提供专业的交流环境、技术支持和资源共享平台。
+            </p>
+        </div>
+        <div class="footer-col">
+            <h4>快速链接</h4>
+            <ul>
+                <li><a href="#">关于我们</a></li>
+                <li><a href="#">联系客服</a></li>
+                <li><a href="#">广告合作</a></li>
+                <li><a href="#">免责声明</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>关注我们</h4>
+            <ul>
+                <li><a href="#">官方微博</a></li>
+                <li><a href="#">微信公众号</a></li>
+                <li><a href="#">QQ交流群</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 SP论坛 版权所有. 保留所有权利.</p>
+    </div>
+</footer>
+
+</body>
+              </html>
