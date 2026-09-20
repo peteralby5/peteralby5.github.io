@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="二战游戏专题站，提供二战题材游戏推荐、历史背景介绍、游戏玩法攻略及硬件配置需求指南。涵盖二战FPS、RTS、战争模拟器等经典与新兴作品。">
+    <meta name="keywords" content="二战游戏,战争游戏,二战题材,二战FPS,RTS策略游戏,历史战争模拟">
+    <title>二战游戏-历史题材游戏推荐与深度评测指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8B4513; /* 军绿色 */
+            --secondary-color: #2F4F4F; /* 深岩灰 */
+            --accent-color: #DAA520; /* 金色 */
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+            --light-text: #f4f4f4;
+            --card-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-weight: 500;
+            transition: var(--transition);
+            padding-bottom: 2px;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/seed/warthog/1600/600.jpg') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 2rem;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--secondary-color);
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #b8860b;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Section Titles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .section-header h2 {
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+        }
+
+        .section-header .more {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Game Grid */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 3rem;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .card-content {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #888;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: white;
+            padding: 3rem 0;
+            border-top: 1px solid #eee;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .feature-item h3 {
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background-color: #e9ecef;
+            padding: 3rem 0;
+        }
+
+        .guide-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .guide-article {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .guide-article h3 {
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .guide-article p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .guide-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .sidebar-box h4 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .sidebar-list li {
+            margin-bottom: 8px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .sidebar-list li::before {
+            content: "•";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #888;
+            padding: 3rem 0;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-outline {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <span>WAR GAMES</span> 二战游戏库
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#fps">第一人称射击</a></li>
+                    <li><a href="#rts">即时战略</a></li>
+                    <li><a href="#sim">战争模拟</a></li>
+                    <li><a href="#guide">新手指南</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Banner -->
+        <section class="hero">
+            <h1>重温历史战场，体验史诗战争</h1>
+            <p>从诺曼底的硝烟到东线的严寒，探索最真实的二战游戏世界。包含二战题材FPS、RTS策略及历史模拟器深度评测。</p>
+            <div>
+                <button class="btn">浏览推荐</button>
+                <button class="btn btn-outline">查看榜单</button>
+            </div>
+        </section>
+
+        <!-- Featured Games -->
+        <section class="container">
+            <div class="section-header">
+                <h2>热门二战游戏推荐</h2>
+                <a href="#" class="more">查看全部 &rarr;</a>
+            </div>
+
+            <div class="game-grid">
+                <!-- Card 1 -->
+                <article class="game-card">
+                    <img src="https://picsum.photos/seed/medal/400/300.jpg" alt="Medal of Honor" class="card-image">
+                    <div class="card-content">
+                        <span class="card-tag">FPS / 战术射击</span>
+                        <h3 class="card-title">荣誉勋章：二战系列</h3>
+                        <p class="card-desc">经典单人战役游戏，以诺曼底登陆为背景，强调战术配合与历史沉浸感。</p>
+                        <div class="card-meta">
+                            <span>评分: 9.2</span>
+                            <span>平台: PC / PS4</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="game-card">
+                    <img src="https://picsum.photos/seed/company/400/300.jpg" alt="Company of Heroes" class="card-image">
+                    <div class="card-content">
+                        <span class="card-tag">RTS / 即时战略</span>
+                        <h3 class="card-title">英雄连：二战系列</h3>
+                        <p class="card-desc">以二战诺曼底战役为核心，强调小规模战术单位和地形破坏的真实模拟。</p>
+                        <div class="card-meta">
+                            <span>评分: 9.5</span>
+                            <span>平台: PC</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="game-card">
+                    <img src="https://picsum.photos/seed/steel/400/300.jpg" alt="Steel Division" class="card-image">
+                    <div class="card-content">
+                        <span class="card-tag">RTS / 车辆对战</span>
+                        <h3 class="card-title">钢铁雄心：二战</h3>
+                        <p class="card-desc">宏观战略模拟游戏，涵盖政治、经济、外交与军事全面战争。</p>
+                        <div class="card-meta">
+                            <span>评分: 9.0</span>
+                            <span>平台: PC</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="game-card">
+                    <img src="https://picsum.photos/seed/warthog/400/300.jpg" alt="Battlefield" class="card-image">
+                    <div class="card-content">
+                        <span class="card-tag">大逃杀 / 战争</span>
+                        <h3 class="card-title">战地：叛逆连队2</h3>
+                        <p class="card-desc">开放世界多人战场，包含载具战斗与大规模步兵对抗的经典之作。</p>
+                        <div class="card-meta">
+                            <span>评分: 8.8</span>
+                            <span>平台: PC / 全平台</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Features / Categories -->
+        <section class="features">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🔫</div>
+                    <h3>第一人称射击 (FPS)</h3>
+                    <p>沉浸式体验前线战斗，包括突击步枪、狙击枪及手雷战术的使用。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🚜</div>
+                    <h3>即时战略 (RTS)</h3>
+                    <p>指挥装甲师与步兵师，管理资源与补给线，制定宏大的战役计划。</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🪖</div>
+                    <h3>战争模拟 (Sim)</h3>
+                    <p>还原真实的军事装备数据、武器性能及战场环境，硬核历史爱好者首选。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide & Information -->
+        <section class="guide-section" id="guide">
+            <div class="guide-container">
+                <div class="section-header">
+                    <h2>二战游戏选购与配置指南</h2>
+                </div>
+                <div class="guide-grid">
+                    <div class="guide-article">
+                        <h3>如何选择适合自己的二战游戏？</h3>
+                        <p>二战游戏类型繁多，选择时应考虑个人偏好：</p>
+                        <p><strong>1. 喜欢沉浸式战斗？</strong> 推荐选择《荣誉勋章》或《使命召唤：二战》系列。这类游戏通常拥有剧情丰富的单人战役和快节奏的多人模式。</p>
+                        <p><strong>2. 热衷于指挥与策略？</strong> 《钢铁雄心》适合喜欢宏观管理的玩家，而《英雄连》则更侧重于微观战术和单位调度。</p>
+                        <p><strong>3. 喜欢大规模载具作战？</strong> 《战地》系列提供了最直观的空地一体化作战体验。</p>
+                        <p><strong>4. 硬核军事迷？</strong> 寻找带有“历史模拟”标签的游戏，这些游戏通常提供详细的武器参数和历史背景介绍。</p>
+                    </div>
+                    <aside class="guide-sidebar">
+                        <div class="sidebar-box">
+                            <h4>常见问题 (FAQ)</h4>
+                            <ul class="sidebar-list">
+                                <li>二战游戏是否包含暴力内容？</li>
+                                <li>推荐哪些低配置电脑能玩二战FPS？</li>
+                                <li>哪里可以下载二战游戏资源？</li>
+                                <li>如何还原二战游戏的音效体验？</li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-box">
+                            <h4>热门阵营</h4>
+                            <ul class="sidebar-list">
+                                <li>盟军 (USA, UK, USSR)</li>
+                                <li>轴心国 (Germany, Japan)</li>
+                                <li>中国军队</li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于二战游戏库</h4>
+                <p>致力于为玩家提供最全面、最客观的二战题材游戏评测与攻略。我们专注于还原历史细节，分享游戏乐趣。</p>
+            </div>
+            <div class="footer-col">
+                <h4>游戏分类</h4>
+                <ul>
+                    <li><a href="#">二战 FPS</a></li>
+                    <li><a href="#">RTS 策略</a></li>
+                    <li><a href="#">模拟经营</a></li>
+                    <li><a href="#">冷门佳作</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li><a href="#">硬件配置要求</a></li>
+                    <li><a href="#">游戏下载指南</a></li>
+                    <li><a href="#">常见问题解答</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 二战游戏库. All Rights Reserved. 本站内容仅供学习交流使用。</p>
+        </div>
+    </footer>
+
+</body>
+</html>
